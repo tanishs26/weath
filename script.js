@@ -23,8 +23,10 @@ btn.addEventListener("click", () => {
     const response = await fetch(key, { mode: "cors" });
     const dataFetched = await response.json();
     console.log(dataFetched);
-    weather_card.style.display = "block";
-    details_card.style.display = "flex";
+    if (dataFetched) {
+      weather_card.style.display = "block";
+      details_card.style.display = "flex";
+    }
 
     temp.innerHTML = `${dataFetched.main.temp}°c`;
     locat.innerHTML = `${dataFetched.name}`;
