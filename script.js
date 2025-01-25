@@ -12,6 +12,11 @@ const weather_img = document.querySelector("#weath-type-img");
 const details_card = document.querySelector(".details-card");
 
 const key = "";
+inp.addEventListener("keydown", (e) => {
+  if (e.key == "Enter") {
+    btn.click();
+  }
+});
 btn.addEventListener("click", () => {
   let city = inp.value;
   console.log(city);
@@ -23,7 +28,9 @@ btn.addEventListener("click", () => {
     const response = await fetch(key, { mode: "cors" });
     const dataFetched = await response.json();
     console.log(dataFetched);
-    if (!dataFetched) {
+    if (dataFetched.cod == "404") {
+      alert("City not found");
+    } else {
       weather_card.style.display = "block";
       details_card.style.display = "flex";
     }
