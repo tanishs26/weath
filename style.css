@@ -2,18 +2,19 @@ body {
   margin: 0;
   padding: 0;
   background: url(Background.png);
-
   font-family: "Nunito";
+
 }
 h2 {
   font-family: "Nunito";
-  font-size: 200%;
-  font-weight: 900;
+  font-size: 230%;
+  font-weight: 700;
   text-align: center;
   color: white;
 }
 
-h4,h3 {
+h4,
+h3 {
   color: #7f7f98;
   text-align: center;
 }
@@ -51,12 +52,23 @@ h4,h3 {
   text-align: center;
 }
 .weather-card {
-  max-width: 350px;
+  max-width: 450px;
+  background-size: cover;
+  background-position: center;
   background-color: #ffffff6b;
   padding: 1rem;
   margin: 2rem;
+  margin-top: 3.3rem;
   color: white;
   border-radius: 20px;
+  scale: 0.9;
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+.weather-card:hover {
+  scale: 0.909;
+  transition: 1.85s;
 }
 #location {
   font-size: 1.5rem;
@@ -68,7 +80,7 @@ h4,h3 {
   color: #d6d6d6;
 }
 #temp {
-  font-size: 3rem;
+  font-size: 3.5rem;
   margin: 0;
 }
 
@@ -109,7 +121,20 @@ main {
   font-size: small;
   color: #998b99;
 }
-.details-card > div>p > span {
-    font-size: 0.8rem;
+.details-card > div > span {
+  font-size: 0.8rem;
+}
+.weath-pic {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
+#weath-type-img {
+  width: 20rem;
+  height: 20rem;
+  position: absolute;
+  right: -80px;
+  bottom: -100px;
+  
 }
