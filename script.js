@@ -9,6 +9,8 @@ const btn = document.querySelector(".search-btn");
 const inp = document.querySelector("#primary-searchbar");
 const weather_card = document.querySelector(".weather-card");
 const weather_img = document.querySelector("#weath-type-img");
+const details_card = document.querySelector(".details-card");
+
 const key = "";
 btn.addEventListener("click", () => {
   let city = inp.value;
@@ -21,6 +23,9 @@ btn.addEventListener("click", () => {
     const response = await fetch(key, { mode: "cors" });
     const dataFetched = await response.json();
     console.log(dataFetched);
+    weather_card.style.display = "block";
+    details_card.style.display = "flex";
+
     temp.innerHTML = `${dataFetched.main.temp}°c`;
     locat.innerHTML = `${dataFetched.name}`;
     min.innerHTML = `${dataFetched.main.temp_min} `;
@@ -66,7 +71,10 @@ btn.addEventListener("click", () => {
       if (dataFetched.weather[0].main == "Clear") {
         weather_img.src = "icons/clearNight.svg";
       }
-      if (dataFetched.weather[0].main == "Clouds"||dataFetched.weather[0].main == "Haze") {
+      if (
+        dataFetched.weather[0].main == "Clouds" ||
+        dataFetched.weather[0].main == "Haze"
+      ) {
         weather_img.src = "icons/cloudsNight.svg";
       }
       if (dataFetched.weather[0].main == "Snow") {
@@ -83,7 +91,10 @@ btn.addEventListener("click", () => {
       if (dataFetched.weather[0].main == "Clear") {
         weather_img.src = "icons/clear.svg";
       }
-      if (dataFetched.weather[0].main == "Clouds"||dataFetched.weather[0].main == "Haze") {
+      if (
+        dataFetched.weather[0].main == "Clouds" ||
+        dataFetched.weather[0].main == "Haze"
+      ) {
         weather_img.src = "icons/clouds.svg";
       }
       if (dataFetched.weather[0].main == "Snow") {

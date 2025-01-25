@@ -46,6 +46,7 @@ h3 {
   border: none;
   margin-left: -1.8rem;
   z-index: 2;
+  cursor: pointer;
 }
 #arrow {
   width: 18px;
