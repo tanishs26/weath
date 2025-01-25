@@ -23,7 +23,7 @@ btn.addEventListener("click", () => {
     const response = await fetch(key, { mode: "cors" });
     const dataFetched = await response.json();
     console.log(dataFetched);
-    if (dataFetched) {
+    if (!dataFetched) {
       weather_card.style.display = "block";
       details_card.style.display = "flex";
     }
