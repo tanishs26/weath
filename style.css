@@ -3,7 +3,6 @@ body {
   padding: 0;
   background: url(Background.png);
   font-family: "Nunito";
-
 }
 h2 {
   font-family: "Nunito";
@@ -137,5 +136,10 @@ main {
   position: absolute;
   right: -80px;
   bottom: -100px;
-  
+}
+@media screen and (max-width: 767px) {
+  main {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+  }
 }
