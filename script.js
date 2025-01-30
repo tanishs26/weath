@@ -25,7 +25,7 @@ btn.addEventListener("click", () => {
   let key = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(
     city
   )}&units=metric&appid=0c70a0e673fe8c4736f464237623d86c`;
-  let key2 = `http://api.weatherapi.com/v1/forecast.json?key=339dbc574c14425aa47141635252701&q=${encodeURIComponent(
+  let key2 = `https://api.weatherapi.com/v1/forecast.json?key=339dbc574c14425aa47141635252701&q=${encodeURIComponent(
     city
   )}&days=5&aqi=no`;
   console.log(key);
