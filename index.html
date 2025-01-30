@@ -14,16 +14,19 @@
 </head>
 
 <body>
-    <h2>Welcome to <span id>Atmos</span></h2>
-    <h4>Search a location to view the weather forecast</h4>
-    <div class="container">
+    <div>
+        <h2>Welcome to <span id>Atmos</span></h2>
+        <h4>Search a location to view the weather forecast</h4>
+        <div class="container">
 
-        <input id="primary-searchbar" name="primary-searchbar" placeholder="Search Location">
-        <button class="search-btn"><img id="arrow" src="right-chevron.png" alt=""></button>
+            <input id="primary-searchbar" name="primary-searchbar" placeholder="Search Location">
+            <button class="search-btn"><img id="arrow" src="right-chevron.png" alt=""></button>
+        </div>
     </div>
+
     <main>
         <div class="weather-card" style="display: none;">
-            <div class="locTime">
+            <div class=" locTime">
                 <p id="location"></p>
                 <p id="time"></p>
             </div>
@@ -40,10 +43,10 @@
             </div>
 
         </div>
-        <div class="details-card" style="display:none;">
+        <div class="details-card" style="display: none;">
             <h3>Today's Weather Details</h3>
             <div>
-                <p><img src="feels.svg" alt="" srcset="">Feel's Like</p>
+                <p><img src=" feels.svg" alt="" srcset="">Feel's Like</p>
                 <span id="feel">29*c</span>
             </div>
             <div>
@@ -60,7 +63,47 @@
             </div>
         </div>
     </main>
+    <div id="future-data" style="display: none;">
+        <h3>Forecast for 5 days</h3>
+        <div class="conts">
+            <div class="fut-container fut-container-1">
+                <div class="day">Sunday</div>
+                <img src="icons/clouds.svg" alt="">
+                <div class="fut-description">Clouds</div>
+                <div class="fut-min-max">25°c 12°c</div>
+            </div>
+            <div class="fut-container fut-container-2">
+                <div class="day">Sunday</div>
+                <img src="icons/clouds.svg" alt="">
+                <div class="fut-description">Clouds</div>
+                <div class="fut-min-max">25°c 12°c</div>
+            </div>
+            <div class="fut-container fut-container-3">
+                <div class="day">Sunday</div>
+                <img src="icons/clouds.svg" alt="">
+                <div class="fut-description">Clouds</div>
+                <div class="fut-min-max">25°c 12°c</div>
+            </div>
+            <div class="fut-container fut-container-4">
+                <div class="day">Sunday</div>
+                <img src="icons/clouds.svg" alt="">
+                <div class="fut-description">Clouds</div>
+                <div class="fut-min-max">25°c 12°c</div>
+            </div>
+            <div class="fut-container fut-container-5">
+                <div class="day">Sunday</div>
+                <img src="icons/clouds.svg" alt="">
+                <div class="fut-description">Clouds</div>
+                <div class="fut-min-max">25°c 12°c</div>
+            </div>
+        </div>
+    </div>
+
+
 </body>
+<footer>
+    © 2023 Copyright - <a href="https://github.com/tanishs26">tanishs26</a>
+</footer>
 <script src="script.js"></script>
 
 </html>

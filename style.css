@@ -4,8 +4,12 @@ body {
   background: url(Background.png);
   font-family: "Nunito";
   min-height: 100vh;
-
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
+
 h2 {
   font-family: "Nunito";
   font-size: 230%;
@@ -28,7 +32,7 @@ h3 {
   justify-content: center;
 }
 #primary-searchbar {
-  padding: 0.5rem 2.2rem;
+  padding: 0.5rem 5rem;
   border-radius: 5px;
   color: #ffffff;
   border: none;
@@ -40,6 +44,7 @@ h3 {
 }
 #primary-searchbar:focus {
   outline: white;
+  background-color: #1e1e29;
 }
 
 .search-btn {
@@ -49,17 +54,25 @@ h3 {
   z-index: 2;
   cursor: pointer;
 }
+.search-btn:active {
+  background-color: white;
+}
+.search-btn:hover {
+  scale: 0.9;
+}
+
 #arrow {
   width: 18px;
   text-align: center;
 }
 .weather-card {
-  max-width: 450px;
+  min-width: 450px;
+  max-width: auto;
   background-size: cover;
   background-position: center;
   background-color: #ffffff6b;
   padding: 1rem;
-  margin: 2rem;
+  margin: auto;
   margin-top: 3.3rem;
   color: white;
   border-radius: 20px;
@@ -102,6 +115,9 @@ main {
   margin: 2rem;
   color: white;
   scale: 0.9;
+  background-color: #16161f;
+  padding: 1rem;
+  border-radius: 20px;
 }
 .details-card > div {
   display: flex;
@@ -139,9 +155,44 @@ main {
   right: -80px;
   bottom: -100px;
 }
+#future-data {
+  display: block;
+}
+.conts {
+  display: flex;
+  justify-content: space-evenly;
+}
+.fut-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  margin-bottom: 3rem;
+}
+.fut-container > img {
+  width: 5rem;
+  border-radius: 50%;
+}
+footer {
+  color: white;
+  width: 100%;
+  font-size: 15px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+}
+a {
+  color: #8fb2f5;
+  text-decoration: none;
+}
 @media screen and (max-width: 767px) {
   main {
     grid-template-columns: none;
     grid-template-rows: 1fr 1fr;
+  }
+  .fut-container {
+    scale: 0.8;
   }
 }

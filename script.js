@@ -10,6 +10,8 @@ const inp = document.querySelector("#primary-searchbar");
 const weather_card = document.querySelector(".weather-card");
 const weather_img = document.querySelector("#weath-type-img");
 const details_card = document.querySelector(".details-card");
+const future_data = document.querySelector("#future-data");
+const footer = document.querySelector("footer");
 
 const key = "";
 inp.addEventListener("keydown", (e) => {
@@ -23,16 +25,24 @@ btn.addEventListener("click", () => {
   let key = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(
     city
   )}&units=metric&appid=0c70a0e673fe8c4736f464237623d86c`;
+  let key2 = `http://api.weatherapi.com/v1/forecast.json?key=339dbc574c14425aa47141635252701&q=${encodeURIComponent(
+    city
+  )}&days=5&aqi=no`;
   console.log(key);
   async function getWeather() {
     const response = await fetch(key, { mode: "cors" });
+    const response2 = await fetch(key2, { mode: "cors" });
     const dataFetched = await response.json();
+    const dataFetched2 = await response2.json();
     console.log(dataFetched);
-    if (dataFetched.cod == "404") {
+    console.log(dataFetched2);
+    if (dataFetched.cod == "404" || inp.value == "") {
       alert("City not found");
     } else {
       weather_card.style.display = "block";
       details_card.style.display = "flex";
+      future_data.style.display = "block";
+      document.body.appendChild(footer);
     }
 
     temp.innerHTML = `${dataFetched.main.temp}°c`;
@@ -113,6 +123,27 @@ btn.addEventListener("click", () => {
         weather_img.src = "icons/storm.svg";
       }
     }
+    const forecastData = dataFetched2.forecast.forecastday.map((day) => ({
+      day: new Date(day.date).toLocaleDateString("en-US", { weekday: "long" }), // Convert date to weekday
+      icon: `https:${day.day.condition.icon}`,
+      description: day.day.condition.text, 
+      min: `${day.day.mintemp_c}°C`, 
+      max: `${day.day.maxtemp_c}°C`, 
+    }));
+    const futureContainers = document.querySelectorAll(".fut-container");
+
+    futureContainers.forEach((container, index) => {
+      if (forecastData[index]) {
+        const { day, icon, description, min, max } = forecastData[index];
+
+        // Update container elements
+        container.querySelector(".day").innerHTML = day; // Update day name
+        container.querySelector("img").src = icon; // Update icon
+        container.querySelector("img").alt = description; // Update alt text
+        container.querySelector(".fut-description").textContent = description; // Update description
+        container.querySelector(".fut-min-max").textContent = `${max} / ${min}`; // Update temperatures
+      }
+    });
   }
 
   getWeather();
