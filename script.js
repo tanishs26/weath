@@ -28,7 +28,7 @@ btn.addEventListener("click", () => {
   let key2 = `https://api.weatherapi.com/v1/forecast.json?key=339dbc574c14425aa47141635252701&q=${encodeURIComponent(
     city
   )}&days=5&aqi=no`;
-  console.log(key);
+  console.log(key2);
   async function getWeather() {
     const response = await fetch(key, { mode: "cors" });
     const response2 = await fetch(key2);
