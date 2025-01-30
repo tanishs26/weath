@@ -31,7 +31,7 @@ btn.addEventListener("click", () => {
   console.log(key);
   async function getWeather() {
     const response = await fetch(key, { mode: "cors" });
-    const response2 = await fetch(key2, { mode: "cors" });
+    const response2 = await fetch(key2);
     const dataFetched = await response.json();
     const dataFetched2 = await response2.json();
     console.log(dataFetched);
@@ -126,9 +126,9 @@ btn.addEventListener("click", () => {
     const forecastData = dataFetched2.forecast.forecastday.map((day) => ({
       day: new Date(day.date).toLocaleDateString("en-US", { weekday: "long" }), // Convert date to weekday
       icon: `https:${day.day.condition.icon}`,
-      description: day.day.condition.text, 
-      min: `${day.day.mintemp_c}°C`, 
-      max: `${day.day.maxtemp_c}°C`, 
+      description: day.day.condition.text,
+      min: `${day.day.mintemp_c}°C`,
+      max: `${day.day.maxtemp_c}°C`,
     }));
     const futureContainers = document.querySelectorAll(".fut-container");
 
