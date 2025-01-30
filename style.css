@@ -67,7 +67,6 @@ h3 {
 }
 .weather-card {
   min-width: 450px;
-  max-width: auto;
   background-size: cover;
   background-position: center;
   background-color: #ffffff6b;
@@ -194,5 +193,8 @@ a {
   }
   .fut-container {
     scale: 0.8;
+  }
+  .weather-card {
+    min-width: 300px;
   }
 }
